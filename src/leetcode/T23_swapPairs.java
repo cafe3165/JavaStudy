@@ -17,8 +17,8 @@ public class T23_swapPairs {
         ListNode dummyHead = new ListNode(-1);
         dummyHead.next = head;
         ListNode p = dummyHead;
-        ListNode q = new ListNode(-1);
-        if(head==null){
+        ListNode q;
+        if (head == null) {
             return null;
         }
         if (head.next != null) {
@@ -26,7 +26,7 @@ public class T23_swapPairs {
         } else {
             return dummyHead.next;
         }
-        while (q!=null) {
+        while (q != null) {
             p.next.next = q.next;
             q.next = p.next;
             p.next = q;
@@ -48,6 +48,24 @@ public class T23_swapPairs {
         return dummyHead.next;
     }
 
+    public ListNode swapPairs2(ListNode head) {
+        ListNode dummyHead = new ListNode(-1);
+        dummyHead.next = head;
+        ListNode p = dummyHead;
+        while (p.next != null && p.next.next != null) {
+            ListNode start = p.next;
+            ListNode end = p.next.next;
+            start.next = end.next;
+            p.next = end;
+            end.next = start;
+            p = start;
+        }
+
+
+        return dummyHead;
+
+    }
+
     public ListNode gen() {
         ListNode n1 = new ListNode(1);
 //        ListNode n2 = new ListNode(2);
@@ -62,7 +80,7 @@ public class T23_swapPairs {
     public static void main(String[] args) {
 
         T23_swapPairs t = new T23_swapPairs();
-        ListNode head =null;
+        ListNode head = null;
         t.swapPairs(head);
 
     }
