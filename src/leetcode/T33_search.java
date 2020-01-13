@@ -1,7 +1,14 @@
 package leetcode;
 
 public class T33_search {
+    /**
+     *@Author:cafe3165 on 2020/1/13 21:00
+     *@Param:[nums, target]
+     *@Return:int
+     *@Description:查找
+     */
     public int search(int[] nums, int target) {
+
          int low = 0, high = nums.length - 1;
         while (low < high) {
             int mid = (low + high) / 2;
