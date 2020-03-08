@@ -17,12 +17,15 @@ public class MergeSolution {
         ListNode head = null;
         ListNode r = null;
 
-        if (p == null)
+        if (p == null) {
             return q;
-        if (q == null)
+        }
+        if (q == null) {
             return p;
-        if (p == null && q == null)
+        }
+        if (p == null && q == null) {
             return null;
+        }
 
         if (p.val > q.val) {
             head = q;
@@ -45,11 +48,11 @@ public class MergeSolution {
                 q = q.next;
             }
         }
-        if (p != null)
+        if (p != null) {
             r.next = p;
-
-        else
+        } else {
             r.next = q;
+        }
 
 //        while (head != null) {
 ////            System.out.println(head.val);
