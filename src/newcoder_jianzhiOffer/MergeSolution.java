@@ -23,9 +23,6 @@ public class MergeSolution {
         if (q == null) {
             return p;
         }
-        if (p == null && q == null) {
-            return null;
-        }
 
         if (p.val > q.val) {
             head = q;
@@ -41,7 +38,6 @@ public class MergeSolution {
                 r.next = p;
                 r = r.next;
                 p = p.next;
-                continue;
             } else {
                 r.next = q;
                 r = r.next;
