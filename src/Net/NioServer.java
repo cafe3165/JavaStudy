@@ -8,8 +8,10 @@ import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.util.Iterator;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
+
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
+
 
 /**
  * Author:cafe3165
@@ -18,7 +20,10 @@ import java.util.concurrent.Executors;
 public class NioServer {
     private int port;
     private Selector selector;
-    private ExecutorService service = Executors.newFixedThreadPool(5);
+
+    //    private ExecutorService service = Executors.newFixedThreadPool(5);
+//    private ExecutorService service = new ThreadPoolExecutor(1, 4, 300, TimeUnit.MILLISECONDS, new SynchronousQueue<Runnable>(), new ThreadFactoryBuilder().setNameFormat("demo-pool-%d").build(), new ThreadPoolExecutor.AbortPolicy());
+    private ExecutorService service = new ThreadPoolExecutor(1, 4, 300, TimeUnit.MILLISECONDS, new SynchronousQueue<Runnable>(), new ThreadFactoryBuilder().setNameFormat("demo-pool-%d").build(), new ThreadPoolExecutor.AbortPolicy());
 
     public NioServer(int port) {
         this.port = port;
@@ -31,10 +36,13 @@ public class NioServer {
     public void init() {
         ServerSocketChannel ssc = null;
         try {
+//            打开socket通道
             ssc = ServerSocketChannel.open();
             ssc.configureBlocking(false);
+//            绑定端口
             ssc.bind(new InetSocketAddress(port));
             selector = Selector.open();
+//            将通道注册到选择器
             ssc.register(selector, SelectionKey.OP_ACCEPT);
             System.out.println("NioServer started ......");
         } catch (IOException e) {
@@ -60,14 +68,17 @@ public class NioServer {
         while (true) {
             try {
                 int events = selector.select();
+                System.out.println(events);
                 if (events > 0) {
                     Iterator<SelectionKey> selectionKeys = selector.selectedKeys().iterator();
                     while (selectionKeys.hasNext()) {
                         SelectionKey key = selectionKeys.next();
                         selectionKeys.remove();
                         if (key.isAcceptable()) {
+                            /** 从SelectionKey获取对应通道ServerSocketChannel**/
                             accept(key);
                         } else {
+                            System.out.println("submit");
                             service.submit(new NioServerHandler(key));
                         }
                     }

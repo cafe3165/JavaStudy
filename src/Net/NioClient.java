@@ -7,6 +7,12 @@ import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
 import java.util.Iterator;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
 /**
  * Author:cafe3165
@@ -18,15 +24,19 @@ public class NioClient {
     private Selector selector;
 
     public static void main(String[] args) {
+        ExecutorService es = new ThreadPoolExecutor(5, 5, 300, TimeUnit.MILLISECONDS, new SynchronousQueue<Runnable>(), new ThreadFactoryBuilder().setNameFormat("Thread-Pool-%d").build(), new ThreadPoolExecutor.AbortPolicy());
+
         for (int i = 0; i < 3; i++) {
-            new Thread(new Runnable() {
+            Runnable runnable=new Runnable() {
                 @Override
                 public void run() {
                     NioClient client = new NioClient();
                     client.connect(host, port);
                     client.listen();
                 }
-            }).start();
+            };
+            es.submit(runnable);
+
         }
     }
 
