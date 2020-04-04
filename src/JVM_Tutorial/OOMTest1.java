@@ -14,10 +14,17 @@ public class OOMTest1 {
 
     public static void main(String[] args) {
 //        String str="aa"+"bb"+" "+"cc";
-        List<OOMObject> list = new ArrayList<>();
-        while (true) {
-            list.add(new OOMObject());
-        }
+//        List<OOMObject> list = new ArrayList<>();
+//        while (true) {
+//            list.add(new OOMObject());
+//        }
+
+        int a=1;
+        Integer b=new Integer(1);
+        Integer c=new Integer(1);
+        System.out.println(a==(b+c) );
+        System.out.println(b.equals(c));
+
 
     }
 
