@@ -9,13 +9,11 @@ import java.util.Scanner;
 public class Meituan_2 {
     public static void solve(int[] room,int n,long m,long SUM,int MIN){
         int res = 0;
-        while (m >= SUM) {
+//        while (m >= SUM) {
             long tmp=m/SUM;
             m%=SUM;
             res+=(tmp*n);
-//            m -= SUM;
-//            res += n;
-        }
+//        }
         int index_i = 0;
         while (m >= MIN) {
             if (m >= room[index_i]) {
@@ -30,6 +28,8 @@ public class Meituan_2 {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         long m = sc.nextLong();
+//        4 21
+//        2 1 4 3
         int room[] = new int[n];
         long SUM = 0;
         int MIN = Integer.MAX_VALUE - 1;

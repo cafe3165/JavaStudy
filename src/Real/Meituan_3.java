@@ -14,11 +14,12 @@ public class Meituan_3 {
 //    1<=N<=5000   0<=p[i]<=1   0<=a[i]<=1000
 
     private static void solve(int n, double[] p, int[] a) {
-        double res ;
+        double res;
         double[] DP = new double[n], go = new double[n];
         DP[0] = p[0] * a[0];
         go[0] = p[0];
         for (int i = 1; i < n; i++) {
+//            直接打i+1颗的期望
             double Max = p[i] * a[i];
             double gogo = p[i];
             for (int j = 0; j < i; j++) {
@@ -27,10 +28,10 @@ public class Meituan_3 {
                     gogo = p[i - j - 1] * go[j];
                 }
             }
-            DP[i]=Max;
-            go[i]=gogo;
+            DP[i] = Max;
+            go[i] = gogo;
         }
-        res=DP[n-1];
+        res = DP[n - 1];
 //        System.out.println(String.format("%.2f", res));
         System.out.println(new DecimalFormat(".00").format(res));
     }
@@ -47,6 +48,9 @@ public class Meituan_3 {
         for (int i = 0; i < N; i++) {
             a[i] = sc.nextInt();
         }
+//        3
+//        0.9 0.1 0.1
+//        2 1 1
         solve(N, p, a);
 
     }

@@ -20,6 +20,7 @@ public class Meituan_1 {
                 ++index_i;
 
             }
+//            以 j为最大，i为最小，共有多少个符合的
             res = Math.max(index_j - index_i + 1, res);
         }
 //        while (array[index_j] - array[index_i] > x && index_j-index_i>1) {
@@ -47,7 +48,7 @@ public class Meituan_1 {
 //            ++res;
 //        }
 
-        System.out.println(array.length-res);
+        System.out.println(array.length - res);
 
 
     }
@@ -56,6 +57,8 @@ public class Meituan_1 {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int x = sc.nextInt();
+//        5 2
+//        2 1 3 2 5
         int[] array = new int[n];
         for (int i = 0; i < n; i++) {
             array[i] = sc.nextInt();
