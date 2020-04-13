@@ -32,7 +32,7 @@ public class T16_threeSumClosest {
 
     public static void main(String[] args) {
         T16_threeSumClosest t = new T16_threeSumClosest();
-        int[] nums = {-1, 2, 1, -4};
+        int[] nums = {-2,11,-4,13,-5,2};
         int target = 1;
         t.threeSumClosest(nums, target);
     }
