@@ -12,12 +12,7 @@ public class bianli2 {
         int last = 0, longest = 0, car = 0;
         for (int i = 0; i < Nums.length - 1; i++) {
             longest = Math.max(longest, Nums[i] + i);
-
             if (last == i) {
-//                if(Nums[i]+i<=longest){
-//                    return -1;
-//                }
-
                 last = longest;
                 car++;
             }
