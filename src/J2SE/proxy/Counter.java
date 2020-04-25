@@ -21,4 +21,9 @@ public class Counter implements InvocationHandler {
         System.out.println("结束");
         return null;
     }
+//    @Override
+//    public Object newProxyInstance(){
+//
+//    }
+
 }

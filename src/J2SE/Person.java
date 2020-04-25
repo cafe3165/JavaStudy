@@ -5,7 +5,7 @@ package J2SE;
  * Date:2020-03-07
  */
 
-public class Person implements Comparable{
+public class Person implements Comparable {
     private String name;
     private int age;
 
@@ -33,9 +33,15 @@ public class Person implements Comparable{
 
     @Override
     public int compareTo(Object o) {
-        Person p=(Person)o;
+        Person p = (Person) o;
 //        return this.age-p.age;
         return this.name.compareTo(p.name);
 //        return 0;
     }
+
+    public void call() {
+        System.out.println(name + " " + age);
+    }
+
+
 }
