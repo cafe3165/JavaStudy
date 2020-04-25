@@ -13,7 +13,7 @@ public class RunableTest {
 
     public static class CallerTask implements Callable<String> {
         @Override
-        public String call() throws Exception{
+        public String call() {
             return "hello";
         }
 
