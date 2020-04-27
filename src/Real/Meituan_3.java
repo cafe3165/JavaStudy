@@ -48,9 +48,7 @@ public class Meituan_3 {
         for (int i = 0; i < N; i++) {
             a[i] = sc.nextInt();
         }
-//        3
-//        0.9 0.1 0.1
-//        2 1 1
+//        3 0.9 0.1 0.1 2 1 1
         solve(N, p, a);
 
     }

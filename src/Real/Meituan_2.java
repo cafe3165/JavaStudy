@@ -28,8 +28,7 @@ public class Meituan_2 {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         long m = sc.nextLong();
-//        4 21
-//        2 1 4 3
+//        4 21 2 1 4 3
         int room[] = new int[n];
         long SUM = 0;
         int MIN = Integer.MAX_VALUE - 1;
