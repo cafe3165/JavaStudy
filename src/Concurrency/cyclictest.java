@@ -35,8 +35,7 @@ public class cyclictest {
 
     public static void main(String[] args) {
         int threadNum = 5;
-        CyclicBarrier barrier = new CyclicBarrier(threadNum, () -> System.out.println(Thread.currentThread().getName() + " 完成最后任务"));
-
+        CyclicBarrier barrier = new CyclicBarrier(threadNum);
         for (int i = 0; i < threadNum; i++) {
             new TaskThread(barrier).start();
         }

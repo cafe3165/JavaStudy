@@ -12,11 +12,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class countdownlatchtest_oddeven {
     private static AtomicInteger num = new AtomicInteger();
     private static CountDownLatch count = new CountDownLatch(2);
+    private volatile static int i;
 
     public static void main(String[] args) throws InterruptedException {
         ThreadFactory tf = new ThreadFactoryBuilder().setNameFormat("demo-pool-%d").build();
-        ExecutorService es = new ThreadPoolExecutor(1, 2, 300, TimeUnit.MILLISECONDS, new SynchronousQueue<Runnable>(), tf, new ThreadPoolExecutor.AbortPolicy());
-
+        ExecutorService es = new ThreadPoolExecutor(1, 2, 300, TimeUnit.MILLISECONDS, new SynchronousQueue<>(), tf, new ThreadPoolExecutor.AbortPolicy());
+//        Executors.newFixedThreadPool();
+        AtomicInteger i=new AtomicInteger(1);
+//        i.addAndGet(5);
+        System.out.println( i.get());
 
         es.execute(() -> {
             while (num.intValue() < 10) {
@@ -24,7 +28,7 @@ public class countdownlatchtest_oddeven {
                     System.out.println(Thread.currentThread().getName() + "偶数线程"+num.intValue());
                     num.incrementAndGet();
                 }
-                count.countDown();
+//                count.countDown();
             }
         });
 
@@ -34,11 +38,11 @@ public class countdownlatchtest_oddeven {
                     System.out.println(Thread.currentThread().getName() + "奇数线程"+num.intValue());
                     num.incrementAndGet();
                 }
-                count.countDown();
+//                count.countDown();
             }
         });
 
-        count.await();
+//        count.await();
         es.shutdown();
 
 
