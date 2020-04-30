@@ -13,5 +13,7 @@ public class dynaTest {
         InvocationHandler dealer=new Counter(maoTai);
         SellWine dynamicProxy=(SellWine) Proxy.newProxyInstance(MaoTai.class.getClassLoader(),MaoTai.class.getInterfaces(),dealer);
         dynamicProxy.sell();
+//        Proxy.newProxyInstance(MaoTai.class.getClassLoader(),MaoTai.class.getInterfaces(),dealer);
+
     }
 }
