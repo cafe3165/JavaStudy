@@ -10,14 +10,14 @@ public class dijk {
         boolean st[] = new boolean[vexnum];
         int[] dis = new int[vexnum];
 
-//        for (int i = 0; i < vexnum; i++) {
-//            for (int j = i+1; j < vexnum; j++) {
-//                if(edges[i][j]==0){
-//                    edges[i][j]=Integer.MAX_VALUE;
-//                    edges[j][i]=Integer.MAX_VALUE;
-//                }
-//            }
-//        }
+        for (int i = 0; i < vexnum; i++) {
+            for (int j = i+1; j < vexnum; j++) {
+                if(edges[i][j]==0){
+                    edges[i][j]=Integer.MAX_VALUE;
+                    edges[j][i]=Integer.MAX_VALUE;
+                }
+            }
+        }
         for (int i = 0; i < vexnum; i++) {
             dis[i] = edges[v][i];
         }
@@ -66,7 +66,8 @@ public class dijk {
                 {max, max, max, max, max, 0},
 
         };
-        dijkstra(1, edges);
+
+        System.out.println( dijkstra(1, edges));
 
     }
 }
