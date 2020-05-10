@@ -1,7 +1,7 @@
 package leetcode_list200;
 
 public class T23_swapPairs {
-    public class ListNode {
+    public static class ListNode {
         int val;
         ListNode next;
 
@@ -10,17 +10,17 @@ public class T23_swapPairs {
         }
     }
 
-    public ListNode swapPairs(ListNode head) {
+    public ListNode swapPairs(ListNode input) {
 
         ListNode dummyHead = new ListNode(-1);
-        dummyHead.next = head;
+        dummyHead.next = input;
         ListNode p = dummyHead;
         ListNode q;
-        if (head == null) {
+        if (input == null) {
             return null;
         }
-        if (head.next != null) {
-            q = head.next;
+        if (input.next != null) {
+            q = input.next;
         } else {
             return dummyHead.next;
         }
@@ -64,22 +64,23 @@ public class T23_swapPairs {
 
     }
 
-    public ListNode gen() {
+    public static ListNode gen() {
         ListNode n1 = new ListNode(1);
-//        ListNode n2 = new ListNode(2);
-//        ListNode n3 = new ListNode(3);
-//        ListNode n4 = new ListNode(4);
-//        n1.next = n2;
-//        n2.next = n3;
-//        n3.next = n4;
+        ListNode n2 = new ListNode(2);
+        ListNode n3 = new ListNode(3);
+        ListNode n4 = new ListNode(4);
+        n1.next = n2;
+        n2.next = n3;
+        n3.next = n4;
         return n1;
     }
 
     public static void main(String[] args) {
 
         T23_swapPairs t = new T23_swapPairs();
-        ListNode head = null;
-        t.swapPairs(head);
+        ListNode head = gen();
+        ListNode p=t.swapPairs(head);
+        System.out.println(p.val);
 
     }
 }
