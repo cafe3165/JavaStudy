@@ -8,7 +8,7 @@ package Real;
 public class KuaiShou_4 {
 
     public int GetMaxStaffs(char[][] pos) {
-        // write code here
+          // write code here
         boolean[][] seat = new boolean[pos.length][pos[0].length];
         return traceBack(pos, seat, 0, 0, 0);
     }

@@ -23,7 +23,7 @@ public class jbit2 {
     }
 
     public static int kruskal(edge[] es, int n) {
-        int[] p = new int[n+1];
+        int[] p = new int[n + 1];
         for (int i = 1; i <= n; i++) {
             p[i] = 1;
         }
@@ -36,18 +36,14 @@ public class jbit2 {
                 sum += e.w;
             }
         }
-        for (int i = 1; i <= n-1; i++) {
-            for (int j = i+1; j <=n ; j++) {
-                if(find(p,i)!=find(p,j)){
+        for (int i = 1; i <= n - 1; i++) {
+            for (int j = i + 1; j <= n; j++) {
+                if (find(p, i) != find(p, j)) {
                     return -1;
                 }
             }
         }
-
-
-
         return sum;
-
     }
 
     public static int find(int[] p, int index) {
@@ -56,7 +52,6 @@ public class jbit2 {
         }
         return index;
     }
-
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -70,8 +65,6 @@ public class jbit2 {
             es[i] = new edge(s, e, w);
         }
         Arrays.sort(es, Comparator.comparingInt(o -> o.w));
-
-        System.out.println( kruskal(es, n));
-
+        System.out.println(kruskal(es, n));
     }
 }
