@@ -6,15 +6,15 @@ package J2SE.codeblock;
  */
 public class A {
     {
-        System.out.println("aaa");
+        System.out.println("代码块");
     }
 
     static {
-        System.out.println("bbb");
+        System.out.println("静态代码块");
     }
 
     public A() {
-        System.out.println("ccc");
+        System.out.println("构造方法");
     }
 
     public Number say(){
