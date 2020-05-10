@@ -18,6 +18,8 @@ public class countdownlatchtest_oddeven {
         ThreadFactory tf = new ThreadFactoryBuilder().setNameFormat("demo-pool-%d").build();
         ExecutorService es = new ThreadPoolExecutor(1, 2, 300, TimeUnit.MILLISECONDS, new SynchronousQueue<>(), tf, new ThreadPoolExecutor.AbortPolicy());
 //        Executors.newFixedThreadPool();
+        Executors.newFixedThreadPool(1);
+
         AtomicInteger i=new AtomicInteger(1);
 //        i.addAndGet(5);
         System.out.println( i.get());
