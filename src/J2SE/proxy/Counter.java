@@ -2,6 +2,8 @@ package J2SE.proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+
 
 /**
  * Author:cafe3165
@@ -13,6 +15,12 @@ public class Counter implements InvocationHandler {
     public Counter(Object brand) {
         this.brand = brand;
     }
+
+    public SellWine bind (Object brand){
+        return (SellWine)Proxy.newProxyInstance(brand.getClass().getClassLoader(),brand.getClass().getInterfaces(),this);
+    }
+
+
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
