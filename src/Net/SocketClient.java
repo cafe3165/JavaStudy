@@ -20,6 +20,7 @@ public class SocketClient {
         socket.getOutputStream().write(message.getBytes("UTF-8"));
         outputStream.close();
         socket.close();
+
     }
 
 }
