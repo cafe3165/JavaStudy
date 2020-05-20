@@ -83,7 +83,8 @@ public class T547findCircleNum {
                 {0, 0, 1}};
 
         T547findCircleNum t = new T547findCircleNum();
-        t.findCircleNum(M);
+
+        System.out.println( t.findCircleNum(M));
     }
 
 }
