@@ -1,4 +1,4 @@
-package proxytest;
+package J2SE.proxy.proxytest;
 
 /**
  * Author:cafe3165

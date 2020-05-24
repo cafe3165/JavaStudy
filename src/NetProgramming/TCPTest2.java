@@ -1,4 +1,4 @@
-package Net;
+package NetProgramming;
 
 import java.io.*;
 import java.net.InetAddress;

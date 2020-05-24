@@ -1,4 +1,4 @@
-package proxytest;
+package J2SE.proxy.proxytest;
 
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
