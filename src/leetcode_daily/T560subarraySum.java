@@ -43,9 +43,9 @@ public class T560subarraySum {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1};
-        int k = 0;
-        subarraySum(nums, k);
+        int[] nums = {4,5,0,-2,-3,1};
+        int k = 5;
+        subarraySum2(nums, k);
 
     }
 }
