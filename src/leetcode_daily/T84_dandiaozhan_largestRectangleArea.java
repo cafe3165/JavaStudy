@@ -26,9 +26,11 @@ public class T84_dandiaozhan_largestRectangleArea {
         newHeights[len + 1] = 0;
         len += 2;
         heights = newHeights;
+
         Deque<Integer> stack = new ArrayDeque<>();
-        for (int i = 0; i < len; i++) {
-            while (!stack.isEmpty() && heights[i] < heights[stack.peekLast()]) {
+        stack.addLast(0);
+        for (int i = 1; i < len; i++) {
+            while (heights[i] < heights[stack.peekLast()]) {
                 int curHeight = heights[stack.pollLast()];
                 int curWidth = i - stack.peekLast() - 1;
                 res = Math.max(res, curHeight * curWidth);
@@ -36,10 +38,7 @@ public class T84_dandiaozhan_largestRectangleArea {
             }
             stack.add(i);
         }
-
-
         return res;
-
     }
 
     public static void main(String[] args) {
