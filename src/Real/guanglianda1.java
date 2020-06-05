@@ -1,6 +1,5 @@
 package Real;
 
-import leetcode_daily.T206ReverseList;
 
 import java.util.Scanner;
 
