@@ -17,11 +17,18 @@ public class Stringtest {
 //      Collections.sort(l,(a,b)->b-a);
 //      Collections.rotate(l,-3);
 //        System.out.println(l);
-        String a = "abc";
-//        byte[] aa=a.getBytes();
-        StringBuffer sb = new StringBuffer("abc");
-        System.out.println(a.contentEquals(sb));
-        char[] aa = {'s', 's'};
-        System.out.println(aa.length);
+//        String a = "abc";
+////        byte[] aa=a.getBytes();
+//        StringBuffer sb = new StringBuffer("abc");
+//        System.out.println(a.contentEquals(sb));
+//        char[] aa = {'s', 's'};
+//        System.out.println(aa.length);
+
+        String b=null;
+        if(b.equals("")||b==null){
+            System.out.println("666");
+        }
+
+
     }
 }
