@@ -16,56 +16,51 @@ public class T25reverseKGroup {
             val = x;
         }
     }
-
-    public static ListNode reverseKGroup(ListNode head, int k) {
-        ListNode dum = new ListNode(-1);
-        dum.next = head;
-        Stack<ListNode> stack = new Stack<>();
-        ListNode p = head;
-        int len = 0;
-        while (p != null) {
-            len++;
-            p = p.next;
+    public ListNode reverseKGroup(ListNode head, int k) {
+        if (head == null || k == 1) {
+            return head;
         }
-        int c = len / k;
-        int K = k;
-        p = head;
-        ListNode pre = dum;
-        while (c > 0) {
-            k = K;
-            while (k > 0) {
-                stack.push(p);
-                p = p.next;
-                k--;
-            }
-            while(!stack.isEmpty()){
-                ListNode n=stack.pop();
-                n.next=pre;
-                pre=n;
-            }
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
 
+        ListNode start = dummy;
+        ListNode end = head;
+        int count = 0;
+        while (end != null) {
+            count++;
+            // group
+            if (count % k == 0) {
+                // reverse linked list (start, end]
+                start = reverse(start, end.next);
+                end = start.next;
+            } else {
+                end = end.next;
+            }
         }
-        return head;
+        return dummy.next;
+
     }
-
-    public static ListNode rever(ListNode dum, int k) {
-        ListNode pre = null;
-        ListNode cur = dum.next;
-        while (k > 0) {
-            ListNode tmp = cur.next;
-            cur.next = pre;
-            pre = cur;
-            cur = tmp;
-            k--;
+    private ListNode reverse(ListNode start, ListNode end) {
+        ListNode curr = start.next;
+        ListNode prev = start;
+        ListNode first = curr;
+        while (curr != end){
+            ListNode temp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = temp;
         }
-        return pre;
+        start.next = prev;
+        first.next = curr;
+        return first;
     }
 
 
     public static void main(String[] args) {
         ListNode root = gen();
         int k = 2;
-        root = reverseKGroup(root, k);
+        T25reverseKGroup t=new T25reverseKGroup();
+        root = t.reverseKGroup(root, k);
         while (root != null) {
             System.out.print(root.val);
             root = root.next;
