@@ -1,6 +1,8 @@
 package J2SE;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Author:cafe3165
@@ -42,6 +44,12 @@ public class ArrayTest {
 //        ArrayTest a=new ArrayTest();
 //        a.ArrayTest(9);
 
-        System.out.println(test());
+//        System.out.println(test());
+        int[] a={0,1,2,3,4,5};
+        int[] b=new int[5];
+        System.arraycopy(a,1,b,0,3);
+        System.out.println(b);
+        int[] c= Arrays.copyOf(a,4);
+        System.out.println(c);
     }
 }

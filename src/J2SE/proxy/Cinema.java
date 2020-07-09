@@ -25,3 +25,4 @@ public class Cinema implements Movie {
         System.out.println("advertise");
     }
 }
+
