@@ -1,5 +1,9 @@
 package leetcode_daily.March;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Comparator;
+
 /**
  * Author:cafe3165
  * Date:2020-03-09
@@ -21,39 +25,38 @@ public class T121maxProfit {
 
     }
 
+
     public int maxProfit2(int[] prices) {
-        if (prices.length == 0) {
+        int n = prices.length;
+        if (n < 2) {
             return 0;
         }
-        int maxP = 0, valley = prices[0], peak = prices[0];
-
-        int i=0;
-        while(i<prices.length-1){
-            while(i<prices.length-1&&prices[i]>prices[i+1]){
-                i++;
+        int[][] dp = new int[n][2];
+        for (int i = 0; i < n; i++) {
+            if (i == 0) {
+                dp[i][0] = 0;
+                dp[i][1] = -prices[i];
+            } else {
+                dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + prices[i]);
+                dp[i][1] = Math.max(dp[i - 1][1], -prices[i]);
             }
-            valley=prices[i];
-            while(i<prices.length-1&&prices[i]<prices[i+1]){
-                i++;
-            }
-            peak=prices[i];
-
-            maxP+=peak-valley;
-
-
-
-
-
         }
-        
-
-        return maxP;
+        return dp[n - 1][0];
     }
+
 
     public static void main(String[] args) {
         T121maxProfit t = new T121maxProfit();
-//        int[] prices = {7, 1, 5, 3, 6, 4};
-        int[] prices={3,3};
-        t.maxProfit2(prices);
+        Integer[] prices = {7, 1, 5, 3, 6, 4};
+//        int[] prices = {3, 3};
+//        t.maxProfit2(prices);
+        Arrays.sort(prices,new Comparator<Integer>(){
+
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return 0;
+            }
+        });
+
     }
 }
