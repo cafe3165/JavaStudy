@@ -9,49 +9,35 @@ public class T875minEatingSpeed {
         int len = piles.length;
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < len; i++) {
-            if (piles[i] > max) {
-                max = piles[i];
+            max = Math.max(max, piles[i]);
+        }
+        int left = 1, right = max + 1;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (canEat(mid, piles, H)) {
+                left = mid+1;
+            } else {
+                 right= mid;
             }
-
         }
 
-        for (int i = 1; i <= max; i++) {
-            if (canEat(i, piles, H)) {
-                return i;
-            }
-        }
-
-        return 0;
+        return left;
     }
 
-    private boolean canEat(int minEat, int[] Piles, int H) {
-        int index = 0;
-
-        int[] piles = new int[Piles.length];
-        System.arraycopy(Piles, 0, piles, 0, Piles.length);
-        while (index < piles.length && H > 0) {
-            if (piles[index] > 0) {
-                piles[index] -= minEat;
-                H--;
-            } else if(index<piles.length-1){
-                index++;
-            }
+    private boolean canEat(int speed, int[] piles, int H) {
+        int count = 0;
+        for (int pile : piles) {
+            count += Math.ceil(pile * 1.0 / speed);
         }
-
-        if (index < piles.length - 1 || piles[index] > 0) {
-            return false;
-        } else {
-            return true;
-        }
-
+        return count > H;
     }
 
     public static void main(String[] args) {
         T875minEatingSpeed t = new T875minEatingSpeed();
-        int[] piles = {312884470};
+        int[] piles = {3, 6, 7, 11};
 
 
-        int H = 312884469;
+        int H = 8;
         t.minEatingSpeed(piles, H);
     }
 }
