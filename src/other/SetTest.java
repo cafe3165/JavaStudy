@@ -1,8 +1,8 @@
 package other;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.sql.DriverManager;
+import java.util.*;
+import java.util.concurrent.LinkedBlockingDeque;
 
 /**
  * Author:cafe3165
@@ -24,5 +24,15 @@ public class SetTest {
                 break;
             }
         }
+
+//        LinkedList
+//        Stack
+//        ArrayDeque
+//        LinkedBlockingDeque
+//        DriverManager
+//            Deque<
+//            Integer> deque=new ArrayDeque<>();
+//        deque.addLast();
+//        deque.
     }
 }
