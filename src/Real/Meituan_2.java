@@ -7,7 +7,8 @@ import java.util.Scanner;
  * Date:2020-04-02
  */
 public class Meituan_2 {
-    public static void solve(int[] room,int n,long m,long SUM,int MIN){
+
+    public static void solve(int[] room, int n, long m, long SUM, int MIN){
         int res = 0;
 //        while (m >= SUM) {
             long tmp=m/SUM;

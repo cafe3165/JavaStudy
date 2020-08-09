@@ -30,5 +30,6 @@ public class yuanfudao_1 {
             }
         }
         System.out.println(heart);
+//        4 1 2 1 3 3 4 2 3
     }
 }
