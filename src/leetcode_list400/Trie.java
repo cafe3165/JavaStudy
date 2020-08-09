@@ -1,6 +1,9 @@
 package leetcode_list400;
 
 
+import java.util.HashMap;
+import java.util.concurrent.Executors;
+
 public class Trie {
 
     class TrieNode {
@@ -80,7 +83,9 @@ public class Trie {
     }
 
     public static void main(String[] args) {
-
+//            HashMap
+//        Executors
+        Executors.newCachedThreadPool();
     }
 
 
