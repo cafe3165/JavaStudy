@@ -24,9 +24,14 @@ public class Stringtest {
 //        char[] aa = {'s', 's'};
 //        System.out.println(aa.length);
 
-        String b=null;
-        if(b.equals("")||b==null){
-            System.out.println("666");
+//        String b=null;
+//        if(b.equals("")||b==null){
+//            System.out.println("666");
+//        }
+        String s="Sfdsfsdf.sdfsdfsd.sdfsdfsd";
+        String[] ss=s.split("\\.");
+        for (String str : ss) {
+            System.out.println(str);
         }
 
 

@@ -3,6 +3,7 @@ package labuladong.HighFrequnt;
 import J2SE.codeblock.D;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 
 public class LRUCache {
@@ -133,6 +134,8 @@ public class LRUCache {
 //// cache = [(1, 4), (3, 3)]
 //// 解释：键 1 已存在，把原始值 1 覆盖为 4
 //// 不要忘了也要将键值对提前到队头
+
+        LinkedList linkedList= new LinkedList<>();
     }
 
 
