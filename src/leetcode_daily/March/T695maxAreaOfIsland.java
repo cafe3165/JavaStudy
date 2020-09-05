@@ -13,7 +13,6 @@ public class T695maxAreaOfIsland {
                 if (grid[i][j] == 1) {
                     res = Math.max(res, dfs(i, j, grid));
                 }
-
             }
         }
         return res;

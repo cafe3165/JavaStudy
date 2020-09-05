@@ -20,19 +20,22 @@ public class FibonacciSolution {
             res = f + g;
             f=g;
             g=res;
+            System.out.println(res);
         }
-        if(n==0)
+        if(n==0) {
             return 0;
-        else
+        }
 
+        else {
             return res;
+        }
 
     }
 
     public static void main(String[] args) {
 //        System.out.println("Hello World!");
-        int n =25;
-        System.out.println(Fibonacci(n));
+        int n =16;
+       // System.out.println(Fibonacci(n));
         System.out.println(Fibonacci2(n));
     }
 }
