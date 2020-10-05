@@ -14,7 +14,12 @@ public class T56merge {
         if (intervals.length == 0) {
             return new int[][]{};
         }
-        Arrays.sort(intervals, (o1, o2) -> o1[0] - o2[0]);
+        Arrays.sort(intervals, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+               return o1[0]-o2[0];
+            }
+        });
         List<int[]> reslist = new ArrayList<>();
         reslist.add(intervals[0]);
         int index = 0;

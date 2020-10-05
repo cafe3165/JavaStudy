@@ -30,8 +30,6 @@ public class DIDI_2 {
 
     public static void spiralOrder(Long[][] matrix,List<Long> resList) {
         int index=resList.size()-1;
-        List<Integer> res = new ArrayList<>();
-
         int up = 0, down = matrix.length - 1, left = 0, right = matrix[0].length - 1;
 
         while (true) {

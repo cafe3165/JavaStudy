@@ -41,8 +41,14 @@ public class SingletonDou {
     }
 
     public static void main(String[] args) {
-        ExecutorService es = new ThreadPoolExecutor(2, 5, 100, TimeUnit.MILLISECONDS, new SynchronousQueue<>(), new ThreadFactoryBuilder().build(), new ThreadPoolExecutor.AbortPolicy());
-//        es.submit(() -> {
+        ExecutorService es = new ThreadPoolExecutor(2, 5, 100, TimeUnit.MILLISECONDS, new SynchronousQueue<>(), new ThreadPoolExecutor.AbortPolicy());
+        es.execute(() -> {
+            SingletonDou s = SingletonDou.getInstance();
+            s.setNum(s.getNum() + 1);
+            System.out.println(s.getNum());
+        });
+
+        //        es.submit(() -> {
 //            SingletonDou s=SingletonDou.getInstance();
 //            s.setNum(s.getNum()+1);
 //            System.out.println(s.getNum());
@@ -56,22 +62,22 @@ public class SingletonDou {
 //
 //        es.shutdown();
 
-        Thread t1=new Thread(new Runnable() {
+        Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
-                SingletonDou s=SingletonDou.getInstance();
+                SingletonDou s = SingletonDou.getInstance();
                 System.out.println(s.getNum());
-                s.setNum(s.getNum()+1);
+                s.setNum(s.getNum() + 1);
                 System.out.println(s.getNum());
 
             }
         });
-        Thread t2=new Thread(new Runnable() {
+        Thread t2 = new Thread(new Runnable() {
             @Override
             public void run() {
-                SingletonDou s=SingletonDou.getInstance();
+                SingletonDou s = SingletonDou.getInstance();
                 System.out.println(s.getNum());
-                s.setNum(s.getNum()+5);
+                s.setNum(s.getNum() + 5);
                 System.out.println(s.getNum());
 
             }
