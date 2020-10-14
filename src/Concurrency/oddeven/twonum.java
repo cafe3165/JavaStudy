@@ -35,7 +35,6 @@ public class twonum {
                             System.out.println("thread2  " + i++);
                         } else {
                             lock.notify();
-
                         }
                     }
 
