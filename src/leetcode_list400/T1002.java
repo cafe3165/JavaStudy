@@ -23,7 +23,7 @@ public class T1002 {
         }
         for (int i = 0; i < 26; i++) {
             Character c = Character.valueOf((char)(i+'a'));
-            int count = 0;
+            int count = Integer.MAX_VALUE;
             for (int j = 0; j < mapList.size(); j++) {
                 if(mapList.get(j).containsKey(c)){
                     count = Math.min(count,mapList.get(j).get(c));
@@ -32,7 +32,8 @@ public class T1002 {
                     break;
                 }
             }
-            if (count != 0){
+
+            for (int j = 0; j < count; j++) {
                 res.add(String.valueOf(c));
             }
         }
@@ -40,8 +41,7 @@ public class T1002 {
     }
 
     public static void main(String[] args) {
-        String[] A = {"bella", "lab" +
-                "el", "roller"};
+        String[] A = {"cool","lock","cook"};
         List<String> res = commonChars(A);
         System.out.println(res);
     }
