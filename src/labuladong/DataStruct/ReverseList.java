@@ -62,11 +62,11 @@ public class ReverseList {
         n1.next = n2;
         n2.next = n3;
         n3.next = n4;
-//        ListNode newhead=reversnm(root,2,4);
-        ListNode newhead = reversen(root, 2);
-        System.out.println(newhead);
-        CountDownLatch cl = new CountDownLatch(10);
-        CyclicBarrier cb=new CyclicBarrier(10);
+        ListNode newhead=reversnm(root,2,4);
+     //   ListNode newhead = reversen(root, 3);
+//        System.out.println(newhead);
+//        CountDownLatch cl = new CountDownLatch(10);
+//        CyclicBarrier cb=new CyclicBarrier(10);
         
     }
 }
