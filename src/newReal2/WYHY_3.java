@@ -26,7 +26,7 @@ public class WYHY_3 {
             int N = sc.nextInt(), D = sc.nextInt();
             int[][] Data = new int[N][D + 1];
             for (int i = 0; i < N; i++) {
-                for (int j = 0; j < D+1; j++) {
+                for (int j = 0; j < D + 1; j++) {
                     Data[i][j] = sc.nextInt();
                 }
             }
@@ -68,12 +68,12 @@ public class WYHY_3 {
 
     private static int dnn(Node output, int[] data, String[] line, Map<String, Node> map) {
         if (output.name.contains("input")) {
-            return data[Integer.valueOf(output.name.substring(6))-1];
-        }else{
-            final int[] sum={0};
-            output.in.forEach((s,integer)->{
-                if(line==null||(!line[0].equals(s))||!line[1].equals(output.name)){
-                    sum[0]+=dnn(map.get(s),data,line,map)*integer;
+            return data[Integer.valueOf(output.name.substring(6)) - 1];
+        } else {
+            final int[] sum = {0};
+            output.in.forEach((s, integer) -> {
+                if (line == null || (!line[0].equals(s)) || !line[1].equals(output.name)) {
+                    sum[0] += dnn(map.get(s), data, line, map) * integer;
                 }
             });
             return sum[0];

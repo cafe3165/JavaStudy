@@ -17,25 +17,28 @@ public class qsort {
     }
 
     private static int PartSort(int[] array, int left, int right) {
-        int key = array[right];
+        int key = array[left];
         while (left < right) {
-            while (left < right && array[left] <= key) {
-                left++;
-            }
-            while (left < right && array[right] >= key) {
+            while (left < right && array[right] > key) {
                 right--;
             }
-            swap(array,left,right);
+            if (left < right) {
+                array[left] = array[right];
+            }
+            while (left < right && array[left] < key) {
+                left++;
+            }
+            if (left < right) {
+                array[right] = array[left];
+            }
         }
-        swap(array,left,right);
+        array[left] = key;
         return left;
-
-
     }
 
-    public static void swap(int[] array,int a, int b) {
+    public static void swap(int[] array, int a, int b) {
         int tmp = array[a];
-        array[a]= array[b];
+        array[a] = array[b];
         array[b] = tmp;
     }
 

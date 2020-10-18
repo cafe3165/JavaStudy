@@ -29,10 +29,42 @@ public class T739_ddz_dailyTemperatures {
         return res;
     }
 
+    public int[] dailyTemperatures2(int[] T) {
+        int len = T.length;
+        int[] res = new int[len];
+        Stack<Integer> stack = new Stack<>();
+        for (int i = len - 1; i >= 0; i--) {
+            while (!stack.empty() && T[stack.peek()] <= T[i]) {
+                stack.pop();
+            }
+            res[i] = stack.empty() ? 0 : stack.peek() - i;
+            stack.push(i);
+        }
+
+        return res;
+
+    }
+
+
+    public static void ddz(int[] nums) {
+        int len = nums.length;
+        int[] res = new int[len];
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 2 * len - 1; i >= 0; i--) {
+            while (!stack.empty() && stack.peek() <= nums[i % len]) {
+                stack.pop();
+            }
+            res[i % len] = stack.empty() ? -1 : stack.peek();
+            stack.push(nums[i % len]);
+        }
+    }
+
     public static void main(String[] args) {
         int[] T = {73, 74, 75, 71, 69, 72, 76, 73};
-        T739_ddz_dailyTemperatures t = new T739_ddz_dailyTemperatures();
-        t.dailyTemperatures(T);
+        //[1, 1, 4, 2, 1, 1, 0, 0]
+        //T739_ddz_dailyTemperatures t = new T739_ddz_dailyTemperatures();
+        //t.dailyTemperatures2(T);
+        ddz(new int[]{2, 1, 2, 4, 3});
 
     }
 }
