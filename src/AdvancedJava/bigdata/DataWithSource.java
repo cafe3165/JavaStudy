@@ -8,13 +8,14 @@ package AdvancedJava.bigdata;
 import lombok.Data;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
  * @author https://github.com/yanglbme
  */
 @Data
-public class DataWithSource implements Comparable<DataWithSource> {
+public class DataWithSource {
     /**
      * 数值
      */
@@ -40,10 +41,10 @@ public class DataWithSource implements Comparable<DataWithSource> {
      * 由于 PriorityQueue 使用小顶堆来实现，这里通过修改
      * 两个整数的比较逻辑来让 PriorityQueue 变成大顶堆
      */
-    @Override
-    public int compareTo(DataWithSource o) {
-        return Integer.compare(o.getValue(), this.value);
-    }
+//    @Override
+//    public int compareTo(DataWithSource o) {
+//        return Integer.compare(o.getValue(), this.value);
+//    }
 }
 
 class Test {
@@ -54,7 +55,12 @@ class Test {
         // 创建一个columnSize大小的数组，存放结果
         int[] result = new int[columnSize];
 
-        PriorityQueue<DataWithSource> maxHeap = new PriorityQueue<>();
+        PriorityQueue<DataWithSource> maxHeap = new PriorityQueue<>(new Comparator<DataWithSource>() {
+            @Override
+            public int compare(DataWithSource o1, DataWithSource o2) {
+                return o2.getValue() - o1.getValue();
+            }
+        });
         for (int i = 0; i < rowSize; ++i) {
             // 将每个数组的最大一个元素放入堆中
             DataWithSource d = new DataWithSource(data[i][0], i, 0);
