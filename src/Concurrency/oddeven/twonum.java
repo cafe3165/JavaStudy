@@ -26,7 +26,7 @@ public class twonum {
             }
         };
 
-        Thread thread2 = new Thread() {
+        Thread thread2 = new Thread(new Runnable() {
             @Override
             public void run() {
                 while (i <= 10) {
@@ -40,7 +40,7 @@ public class twonum {
 
                 }
             }
-        };
+        });
         thread1.start();
         thread2.start();
     }
