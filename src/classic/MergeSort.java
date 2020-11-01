@@ -25,7 +25,7 @@ public class MergeSort {
 
     private static void sort(int[] arr, int left, int right, int[] temp) {
         if (left < right) {
-            int mid = (left + right) / 2;
+            int mid = left + (right - left) / 2;
             sort(arr, left, mid, temp);
             //左边归并排序，使得左子序列有序
             sort(arr, mid + 1, right, temp);

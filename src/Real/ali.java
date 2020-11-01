@@ -1,6 +1,7 @@
 package Real;
 
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -79,6 +80,8 @@ public class ali {
     public static void main(String[] args) throws InterruptedException {
         int[] array = {2, 8, 11, 3, 6, 9};
         int k = 3;
-        concurrentPrint2(array, k);
+//        concurrentPrint2(array, k);
+        Semaphore semaphore = new Semaphore(10);
+//        semaphore.
     }
 }

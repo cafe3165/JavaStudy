@@ -13,22 +13,23 @@ public class procontest {
     private PriorityQueue<Integer> queue = new PriorityQueue<>(10);
     private Lock lock = new ReentrantLock();
     private Condition notF = lock.newCondition();
-    private Condition norE = lock.newCondition();
+    private Condition notE = lock.newCondition();
 
-    class Comsumer extends Thread {
+    class Consumer extends Thread {
+        @Override
         public void run() {
             while (true) {
                 lock.lock();
                 try {
                     while (queue.size() == 0) {
                         try {
-                            norE.await();
+                            notE.await();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                     }
-                  int i=queue.poll();
-                    System.out.println("consume"+i);
+                    int i = queue.poll();
+                    System.out.println("consume" + i + " " + queue.size());
                     notF.signal();
                 } finally {
                     lock.unlock();
@@ -38,6 +39,7 @@ public class procontest {
     }
 
     class Producer extends Thread {
+        @Override
         public void run() {
             while (true) {
                 lock.lock();
@@ -50,8 +52,8 @@ public class procontest {
                         }
                     }
                     queue.offer(1);
-                    System.out.println("produce");
-                    norE.signal();
+                    System.out.println("produce" + queue.size());
+                    notE.signal();
                 } finally {
                     lock.unlock();
                 }
@@ -60,8 +62,8 @@ public class procontest {
     }
 
     public static void main(String[] args) {
-        procontest p=new procontest();
+        procontest p = new procontest();
         p.new Producer().start();
-        p.new Comsumer().start();
+        p.new Consumer().start();
     }
 }
