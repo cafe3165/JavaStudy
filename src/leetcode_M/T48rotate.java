@@ -1,10 +1,10 @@
-package leetcode__interview;
+package leetcode_M;
 
 /**
  * Author:cafe3165
  * Date:2020-03-03
  */
-public class Top48rotate {
+public class T48rotate {
     public void rotate(int[][] matrix) {
 //        转置
         int n = matrix[0].length;
@@ -28,7 +28,7 @@ public class Top48rotate {
 
     public static void main(String[] args) {
         int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-        Top48rotate t = new Top48rotate();
+        T48rotate t = new T48rotate();
         t.rotate(matrix);
     }
 }

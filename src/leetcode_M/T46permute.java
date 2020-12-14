@@ -1,4 +1,4 @@
-package leetcode__interview;
+package leetcode_M;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -7,7 +7,7 @@ import java.util.List;
  * Author:cafe3165
  * Date:2020-03-03
  */
-public class Top46permute {
+public class T46permute {
     List<List<Integer>> res = new LinkedList<>();
 
     public List<List<Integer>> permute(int[] nums) {
@@ -37,7 +37,7 @@ public class Top46permute {
 
     public static void main(String[] args) {
         int[] nums = {1, 2, 3};
-        Top46permute t = new Top46permute();
+        T46permute t = new T46permute();
         t.permute(nums);
 
     }

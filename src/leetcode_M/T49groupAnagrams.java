@@ -1,4 +1,4 @@
-package leetcode__interview;
+package leetcode_M;
 
 import java.util.*;
 
@@ -6,7 +6,7 @@ import java.util.*;
  * Author:cafe3165
  * Date:2020-03-05
  */
-public class Top49groupAnagrams {
+public class T49groupAnagrams {
     public List<List<String>> groupAnagrams(String[] strs) {
 //        Map<String,Integer[]> map=new HashMap<>();
         Set<String> set = new HashSet<>();
@@ -72,7 +72,7 @@ public class Top49groupAnagrams {
     }
 
     public static void main(String[] args) {
-        Top49groupAnagrams t = new Top49groupAnagrams();
+        T49groupAnagrams t = new T49groupAnagrams();
         String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
         t.groupAnagrams2(strs);
 

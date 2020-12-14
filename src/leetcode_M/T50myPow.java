@@ -1,10 +1,10 @@
-package leetcode__interview;
+package leetcode_M;
 
 /**
  * Author:cafe3165
  * Date:2020-03-05
  */
-public class Top50 {
+public class T50myPow {
     public double myPow(double x, int n) {
         long N = n;
         if (N < 0) {
@@ -33,7 +33,7 @@ public class Top50 {
     public static void main(String[] args) {
         double x = 2;
         int n = 10;
-        Top50 t = new Top50();
+        T50myPow t = new T50myPow();
         t.myPow(x, n);
 
     }
