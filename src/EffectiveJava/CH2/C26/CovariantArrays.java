@@ -30,13 +30,20 @@ public class CovariantArrays {
 //        }
 
         // ArrayList<Fruit> flist = new ArrayList<Apple>();
-        List<? extends Fruit> fruits = new ArrayList<Jonathan>();
-        Set<?>  ss = new HashSet<Apple>();
 //       ss.add();
 
 //        fruits.contains()
 //        fruits.add()
+//       PECS 原则
+//        Producer Extens Consumer Supers
+        List<Fruit> fruits = new ArrayList<>();
+
+
     }
+//    public static <? extends Fruit>  get(List<? extends Fruit> list) {
+
+//    }
+
 
     public static <T> void copy(List<? super T> dest, List<? extends T> src)
     {
